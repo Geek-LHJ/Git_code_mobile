@@ -1,0 +1,22 @@
+
+#talkbubble {
+  width: 140px;
+  height: 40px;
+  padding: 5px;
+  background: yellow;
+  position: relative;
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+}
+#talkbubble:after {
+  content:"";
+  position: absolute;
+  left: 140px;
+  top: 5px;
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-left: 26px solid yellow;
+  border-bottom: 13px solid transparent;
+}

@@ -1,0 +1,63 @@
+body{padding: 100px;}
+/*上框*/
+#triangle1 {
+  width: 50px;
+  height: 80px;
+  border-top: 20px solid black;
+  border-left: 20px solid black;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid transparent;
+  position: relative;
+
+}
+
+/*下框*/
+#triangle2 {
+  margin-top: -40px;
+  width: 200px;
+  height: 50px;
+  border-top: 20px solid transparent;
+  border-left: 20px solid black;
+  border-bottom: 20px solid black;
+  border-right: 20px solid black;
+  position: relative;
+
+}
+
+/*弧形1*/
+#circular1{
+  width: 140px;
+  height: 140px;
+  border-radius: 100% 0 0 0;
+  background-color: black;
+  /*position: absolute;*/
+  /*top:310px;*/
+  /*left: 80px;*/
+  margin-top: -175px;
+  margin-left: 70px;
+}
+
+/*弧形2*/
+#circular2{
+  width: 140px;
+  height: 70px;
+  border-radius: 100% 0 0 0;
+  background-color: white;
+  /*position: absolute;*/
+  /*top:;*/
+  /*left: ;*/
+  margin-top: -70px;
+  margin-left: 70px;
+}
+
+/*向右三角形*/
+#triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-left: 60px solid black;
+  border-bottom: 60px solid transparent;
+  position: absolute;
+  left: 310px;
+  top: 80px;
+}

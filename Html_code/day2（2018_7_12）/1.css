@@ -1,0 +1,12 @@
+table{border: 1px solid black; width: 300px; padding: 20px;}
+div{border: 3px solid yellow; width: 16px; height: 16px; margin: 0 -10px 0 10px;}
+
+/*错误*/
+/*a{ display: inline-block; width: 20px;height:5px; background: red;line-height: 0;font-size:0;vertical-align: middle;-webkit-transform: rotate(45deg);}*/
+/*a:after{content:'/';display:block;width: 20px;height:5px; background: red;-webkit-transform: rotate(-90deg);}*/
+
+/*正确*/
+a{ display: inline-block; width: 10px;height:3px; background: yellow;line-height: 0;font-size:0;
+  vertical-align: middle;-webkit-transform: rotate(45deg);}
+a:after{content:'/';display:block;width: 18px;height:3px; background: yellow;-webkit-transform:
+  rotate(-90deg) translateY(-50%) translateX(50%);}
