@@ -1,0 +1,124 @@
+<!-- 实现
+    两个球同时移动 ball1 => 150 ；  ball2 => 50 
+
+    都移动完成 移动第三个球 ball3 => 150   // Promise.all
+
+    两个球同时移动 ball3 => 0 ；  ball2 => 100 
+
+    只有由一个球移动完成，移动 ball3 => 0;  // Promise.race
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Promise 小球</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script src="https://cdn.bootcss.com/bluebird/3.5.1/bluebird.core.js"></script> -->
+  <style>
+    .ball {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .ball1 {
+      background: red;
+    }
+    .ball2 {
+      background: greenyellow;
+    }
+    .ball3 {
+      background: blueviolet;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="ball ball1" style="margin-left: 0px"></div>
+    <div class="ball ball2" style="margin-left: 0px"></div>
+    <div class="ball ball3" style="margin-left: 0px"></div>
+  </div>
+
+</body>
+<script>
+
+
+var ball1 = document.querySelector('.ball1');
+var ball2 = document.querySelector('.ball2');
+var ball3 = document.querySelector('.ball3');
+
+
+function ballAction(ball, distance, callback){
+  setTimeout(function(){
+    var marginLeft =  parseInt( ball.style.marginLeft, 10 );
+    if(marginLeft === distance){
+      callback && callback();
+    }else{
+      if(marginLeft < distance) {
+        marginLeft++;
+      }else{
+        marginLeft--;
+      }
+      ball.style.marginLeft = marginLeft + 'px';
+
+      ballAction(ball, distance, callback);
+    }
+  },13);
+}
+
+// //
+// ballAction(ball1, 100, function(){
+//   ballAction(ball3, 150, function(){
+//     ballAction(ball2, 50, function(){
+//       ballAction(ball1, 50, function(){
+//         ballAction(ball3, 100, function(){
+//           ballAction(ball1, 150, function(){
+
+//           });
+//         });
+//       });
+//     });
+//   });
+// });
+
+
+
+var ballActionPromise = function(ball, distance){
+  return new Promise(function(resolve) {
+    ballAction(ball, distance, resolve);
+  });
+}
+
+//两个球同时移动 ball1 => 150 ；  ball2 => 50 ；都移动完成 移动第三个球 ball3 => 150   // Promise.all
+    Promise.all([ballActionPromise(ball1, 150), ballActionPromise(ball2, 50)])
+    .then(()=>{
+        return ballActionPromise(ball3, 150);
+    })
+    .then(()=>{
+//两个球同时移动 ball3 => 0 ；  ball2 => 100 ；只有由一个球移动完成，移动 ball3 => 0;  // Promise.race
+        Promise.race([ballActionPromise(ball3, 0), ballActionPromise(ball2, 100)])    
+        .then(()=>{
+        return ballActionPromise(ball3, 50);
+        })
+    })
+//   .then(()=>{
+//     return ballActionPromise(ball2, 0);
+//   })
+//   .then(()=>{
+//     return Promise.all([ballActionPromise(ball1, 0), ballActionPromise(ball2, 50)]);
+//   })
+
+
+
+
+// ballAction(ball1, 100, function(){
+// });
+// setTimeout(function(){
+//   ballAction(ball1, 0, function(){
+//   });
+// }, 700);
+
+
+</script>
+</html>

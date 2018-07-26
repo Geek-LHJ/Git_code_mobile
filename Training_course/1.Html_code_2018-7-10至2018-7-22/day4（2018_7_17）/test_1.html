@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<style>
+	/*reset.css*/
+		body,ul,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,iput{margin:0;padding:0;}
+		body{font-size:12px;}
+		img{border:none;}
+		li{list-style:none;}
+		input,select,textarea{outline:none; border: none;background: none;}
+		textarea{resize:none;}
+		a{text-decoration:none; color: #656565;}
+		/*清浮动*/
+		.clearfix:after{content: "";display: block;clear: both;}
+		.clearfix{zoom:1;}
+		.fl{float: left;}
+		.fr{float: right;}
+
+	/*公用*/
+		.comWidth{width: 1180px;margin: 0px auto;}
+		.leftArea{float: left;}
+		.rightArea{float: right}
+		.hide{display: none;}
+		.show{display: block;}
+	/*main.css*/
+		/*topBar*/
+		.topBar{height: 30px; line-height: 30px;}
+		.position{background: url("./icon/position.png") no-repeat left center;padding-left: 25px;}
+		.topBar .rightArea a{display: inline-block; height: 30px;line-height: 30px; padding: 0 25px; border-right: 1px solid #ddd;}
+		.topBar a:hover{color: #00c9f0;}
+		
+		/*logoBar*/
+		.logoBar{height: 80px;}
+		.logo{width: 310px;height: 80px;}
+		.search_box{width: 425px;height: 38px; margin-top: 30px; border: 1px solid #00c9f0;}
+		.search_text{width: 320px; height: 38px; line-height: 38px; margin-left: 15px;}
+		.search_btn{width: 80px; height: 38px; line-height: 38px;font-family: "Microsoft YaHei","微软雅黑"; background-color: #00c9f0; color: #FFF; cursor:pointer;}
+		
+		/* 导航(h3和ul标签) */
+		.navBox{height: 40px;}
+		.serviceClass{width: 220px; position: relative;}
+/*不成功*/.serviceClass i{width: 20px; height: 20px; background: url("./icon/icon_0.png") no-repeat;}
+		.serviceClass h3{text-align: center;line-height: 40px; background-color: #00c9f0;color: #fff; font-size: 16px;}
+		.nav,.serviceClass h3{font-family: "Microsoft YaHei","微软雅黑";}
+		.nav{line-height: 40px;height: 40px;}
+		.nav li{float: left;}
+		.nav li strong{font-size: 16px;padding-left: 30px;}
+		.nav li a{height: 40px; display: inline-block; padding: 0 20px; font-size: 16px;}
+		.nav li a:hover{color: #00c9f0;}
+		.nav .active{color: #00c9f0;}
+		
+		/*serviceClass_show左边导航栏*/
+		.serviceClass_show{background-color: rgba(66,66, 66,0.8);; position: absolute; top:40px; left: 0;width: 100%; z-index: 1;}
+		.serviceClass_item{border-bottom: 1px solid #fff; }
+		.serviceClass_item li{display: inline-block; height: 70px; line-height: 70px; width: 100%;font-size: 16px; color: #fff;text-align: center; cursor: default;}
+		.serviceClass_item li{ background:url("./icon/jian_r.png") no-repeat 190px center;}
+		
+		/*serviceClass_show激活状态*/
+		.serviceClass_item_active{background-color: #fff;}
+		.serviceClass_item_active li{color: #000;}
+		.serviceClass_item_active li{ background:url("./icon/jian_rr.png") no-repeat 190px center;}
+		
+		/*serviceClass_list详细导航*/
+		.serviceClass_list{background-color: #fff; position: absolute; top: 0px;left: 220px; width: 960px; height: 425px; border: 1px solid blue; border-left: 0px;}
+		.serviceClass_left{width: 630px; height: 425px; position: absolute; padding-right: 40px; /*background-color: #ccc;*/}
+		.serviceClass_list_item{padding: 25px 0; border-bottom: 1px solid #ccc;}
+		.serviceClass_list_item dt{ font-size: 16px; font-weight: bold; height: 30px; line-height: 30px; text-align: center;width: 150px;}
+		.serviceClass_list_item dt a:hover{color: blue;}
+		.serviceClass_list_item dd{padding-left: 150px; line-height: 30px; margin-top: -30px; text-align: left;}
+		.serviceClass_list_item dd a{margin-right: 25px; font-size: 14px;}
+		.serviceClass_list_item_active{color: red;}
+		.serviceClass_list_item dd a:hover{color: blue;}
+		.serviceClass_right{width: 288px;height: 420px;border: 1px solid #ccc; position: absolute; left: 670px;top:0;}
+		.serviceClass_right a{display: block; border-bottom: 1px solid #ccc;width: 288px; height: 140px;}
+		
+		/*banner轮播图*/
+		.banner{/*background-color: #ccc;*/width: 1350px; height: 425px; position: relative;top: 0; left: 0; }
+		.banner_bar .imgBox li{float: left;}
+		.banner_bar .imgBox{}
+		.banner_bar .imgBox .swapImg{position: absolute; z-index: -1; top: 0; left: 0;}
+		.banner_bar .imgBox img{width: 1350px; height: 425px; display: block;}
+		.banner_bar .imgNum{position: absolute;right: 100px; bottom: 30px; width: 150px;}
+		.banner_bar .imgNum a{display: inline-block; width: 10px; height: 10px; border-radius: 5px; background-color: #ccc; cursor:pointer; margin-right: 5px;}
+		/*轮播激活按钮时*/
+		.banner_bar .imgNum .activeNum{background-color: #fff; width: 30px;}
+	</style>
+	<script>
+		// var oServiceClass_item= document.getElementsByClassName("serviceClass_item");
+		// console.log( oServiceClass_item)
+		// for(var i= 0; i< oServiceClass_item.length; i++){
+		// 	this.onmouseover=function(){
+		// 		for(var j= 0; j< oServiceClass_item.length; j++){
+		// 			oServiceClass_item[j].className='serviceClass_item';
+		// 		}
+		// 		this.classList.add("serviceClass_item_active");
+		// 	}
+		// }
+	</script>
+	<script type="text/javascript" src="./jquery-1.4.4.min.js"></script>
+	<script>
+		// for(var i= 0; i< oServiceClass_item.length; i++){ }
+		var i= 0,k= 0;
+		var time;
+		$(function (){			
+			// 导航菜单的效果，显示与隐藏
+			$(".serviceClass_item").mouseover(function(){
+				i = $(this).index();
+				$(".serviceClass_item").eq(i).addClass("serviceClass_item_active").siblings().removeClass("serviceClass_item_active");
+				// $(this).children(".serviceClass_list").removeClass("hide");
+				$(this).find(".serviceClass_list").removeClass("hide");
+			});
+			$(".serviceClass_item").mouseout(function(){
+				$(this).removeClass("serviceClass_item_active");
+				// $(this).children(".serviceClass_list").addClass("hide");	
+				$(this).find(".serviceClass_list").addClass("hide");			
+			});
+
+			//banner轮播图效果
+			$(".swapImg").eq(0).show().siblings().hide();
+			showTime();
+			// time= setInterval(function(){
+			// 	k++;
+			// 	if(k==5){k= 0;}
+			// 	$(".swapImg").eq(k).fadeIn(300).siblings().fadeOut();
+			// 	console.log(k);
+			// 	$(".shu").eq(k).addClass("activeNum").siblings().removeClass("activeNum");
+			// }, 2000);
+			$(".shu").hover(function() {
+			    //获取到当前鼠标所在的下标的索引
+			    k = $(this).index();
+			    show();
+			    clearInterval(time);
+			  }, function () {
+			    showTime();
+			  });
+		});
+		//显示图片
+        function show() {
+          $(".swapImg").eq(k).fadeIn(300).siblings().fadeOut();
+          $(".shu").eq(k).addClass("activeNum").siblings().removeClass("activeNum");
+        }
+        //设置定时器
+        function showTime()
+        {
+          time = setInterval(function () {
+            k++;
+            if (k == 5) {k = 0;}
+            show();
+          }, 2000);
+        }
+	</script>
+</head>
+<body>
+	<div class="headBar">
+		<div class="topBar">
+			<div class="comWidth">
+				<div class="leftArea">
+					<a href="#" class="position">上海市</a>
+				</div>
+				<div class="rightArea">
+						<a href="#">登录</a><a href="#">注册</a><a href="#">服务者登录</a>
+				</div>
+			</div>
+		</div><!--topBar结束-->
+		<div class="logoBar">
+			<div class="comWidth">
+				<div class="logo fl">
+					<a href="#" title=""><img src="./images/logo.png" alt="LOGO"></a>
+				</div>
+				<div class="search_box fr">
+					<input type="text" class="search_text fl" placeholder="搜索所需服务 如 公司注册" >
+					<input type="button" value="搜索" class="search_btn fr">
+				</div>
+			</div>
+		</div><!--logoBar结束-->
+		<div class="navBox">
+			<div class="comWidth">
+				<div class="serviceClass fl">
+					<h3><i></i>全部服务分类</h3>
+					<!-- 暂缺列表内容 -->
+					<div class="serviceClass_show">
+						<ul class="serviceClass_item"><!-- 此处激活 serviceClass_item_active-->
+							<li>注册公司<i></i>
+								<div class="serviceClass_list hide"><!-- hide默认隐藏 -->
+									<div class="serviceClass_left ">
+										<dl class="serviceClass_list_item" >
+											<dt><a href="#" title="">公司注册</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注册</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">公司变更</a></dt>
+											<dd>
+												<a href="#" title="">公司注册</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户的注册地址</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">注销及其他</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注销</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>										
+									</div><!-- serviceClass_left结束 -->
+									<div class="serviceClass_right">
+										<a href="#" title=""><img src="./images/right_1.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_2.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_3.png" alt=""></a>
+									</div><!-- serviceClass_right结束 -->
+								</div><!-- serviceClass_list结束 -->
+							</li>
+						</ul>
+						<ul class="serviceClass_item">
+							<li>税务记账
+								<div class="serviceClass_list hide"><!-- hide -->
+									<div class="serviceClass_left ">
+										<dl class="serviceClass_list_item" >
+											<dt><a href="#" title="">代理记账</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注册</a>
+												<a href="#" title="">注册地址2</a>
+												<a href="#" title="">银行开户2</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">专家代理记账</a></dt>
+											<dd>
+												<a href="#" title="">公司注册2</a>
+												<a href="#" title="">注册地址2</a>
+												<a href="#" title="">银行开户的注册地址</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">特殊行业记账</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注销</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>										
+									</div><!-- serviceClass_left结束 -->
+									<div class="serviceClass_right">
+										<a href="#" title=""><img src="./images/right_1.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_2.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_3.png" alt=""></a>
+									</div><!-- serviceClass_right结束 -->
+								</div><!-- serviceClass_list结束 -->
+							</li>
+						</ul>
+						<ul class="serviceClass_item">
+							<li>商标资产
+								<div class="serviceClass_list hide"><!-- hide -->
+									<div class="serviceClass_left ">
+										<dl class="serviceClass_list_item" >
+											<dt><a href="#" title="">商标资产</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注册</a>
+												<a href="#" title="">注册地址3</a>
+												<a href="#" title="">银行开户3</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">公司变更3</a></dt>
+											<dd>
+												<a href="#" title="">公司注册3</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户的注册地址</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">注销及其他</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注销</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>										
+									</div><!-- serviceClass_left结束 -->
+									<div class="serviceClass_right">
+										<a href="#" title=""><img src="./images/right_1.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_2.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_3.png" alt=""></a>
+									</div><!-- serviceClass_right结束 -->
+								</div><!-- serviceClass_list结束 -->
+							</li>
+						</ul>
+						<ul class="serviceClass_item">
+							<li>高新资质
+								<div class="serviceClass_list hide"><!-- hide -->
+									<div class="serviceClass_left ">
+										<dl class="serviceClass_list_item" >
+											<dt><a href="#" title="">高新资质</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注册</a>
+												<a href="#" title="">注册地址4</a>
+												<a href="#" title="">银行开户4</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">公司变更4</a></dt>
+											<dd>
+												<a href="#" title="">公司注册4</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户的注册地址</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">注销及其他</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注销</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>										
+									</div><!-- serviceClass_left结束 -->
+									<div class="serviceClass_right">
+										<a href="#" title=""><img src="./images/right_1.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_2.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_3.png" alt=""></a>
+									</div><!-- serviceClass_right结束 -->
+								</div><!-- serviceClass_list结束 -->
+							</li>
+						</ul>
+						<ul class="serviceClass_item">
+							<li>社保人事
+								<div class="serviceClass_list hide"><!-- hide -->
+									<div class="serviceClass_left ">
+										<dl class="serviceClass_list_item" >
+											<dt><a href="#" title="">社保人事</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注册</a>
+												<a href="#" title="">注册地址5</a>
+												<a href="#" title="">银行开户5</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">公司变更5</a></dt>
+											<dd>
+												<a href="#" title="">公司注册5</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户的注册地址</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">注销及其他</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注销</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>										
+									</div><!-- serviceClass_left结束 -->
+									<div class="serviceClass_right">
+										<a href="#" title=""><img src="./images/right_1.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_2.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_3.png" alt=""></a>
+									</div><!-- serviceClass_right结束 -->
+								</div><!-- serviceClass_list结束 -->
+							</li>
+						</ul>
+						<ul class="serviceClass_item">
+							<li>专业律师
+								<div class="serviceClass_list hide"><!-- hide -->
+									<div class="serviceClass_left ">
+										<dl class="serviceClass_list_item" >
+											<dt><a href="#" title="">专业律师</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注册</a>
+												<a href="#" title="">注册地址6</a>
+												<a href="#" title="">银行开户6</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">公司变更6</a></dt>
+											<dd>
+												<a href="#" title="">公司注册6</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户的注册地址</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>
+										<dl class="serviceClass_list_item">
+											<dt><a href="#" title="">注销及其他</a></dt>
+											<dd>
+												<a href="#" title="" class="serviceClass_list_item_active">公司注销</a>
+												<a href="#" title="">注册地址</a>
+												<a href="#" title="">银行开户</a>
+											</dd>
+										</dl>										
+									</div><!-- serviceClass_left结束 -->
+									<div class="serviceClass_right">
+										<a href="#" title=""><img src="./images/right_1.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_2.png" alt=""></a>
+										<a href="#" title=""><img src="./images/right_3.png" alt=""></a>
+									</div><!-- serviceClass_right结束 -->
+								</div><!-- serviceClass_list结束 -->
+							</li>
+						</ul>
+					</div><!-- serviceClass_show结束 -->
+				</div><!-- serviceClass结束 -->
+				<ul class="nav fr">
+					<li><a href="#" class="active">首页</a></li>
+					<li><a href="#">工商财税</a></li>
+					<li><a href="#">知识产权</a></li>
+					<li><a href="#">法律服务</a></li>
+					<li><a href="#">人事社保</a></li>
+					<li><a href="#">快和财税</a></li>
+					<li><strong>400-6683-666</strong></li>
+				</ul>				
+			</div><!-- comWidth -->
+		</div><!--navBox结束-->
+	</div><!--headerBar结束-->
+	<div class="banner clearfix">
+		<div class="banner_bar">
+			<ul class="imgBox">
+				<li class="swapImg"><a href="#" title=""><img src="./images/banner_1.png" alt=""></a></li>
+				<li class="swapImg"><a href="#" title=""><img src="./images/banner_2.png" alt=""></a></li>
+				<li class="swapImg"><a href="#" title=""><img src="./images/banner_3.png" alt=""></a></li>
+				<li class="swapImg"><a href="#" title=""><img src="./images/banner_4.png" alt=""></a></li>
+				<li class="swapImg"><a href="#" title=""><img src="./images/banner_5.png" alt=""></a></li>
+			</ul>
+			<div class="imgNum">
+				<a href="#" title="" class="shu activeNum"></a>
+				<a href="#" title="" class="shu"></a>
+				<a href="#" title="" class="shu"></a>
+				<a href="#" title="" class="shu"></a>
+				<a href="#" title="" class="shu"></a>
+			</div>
+		</div>	<!-- banner_bar结束 -->
+	</div><!-- banner结束 -->
+</body>
+</html>

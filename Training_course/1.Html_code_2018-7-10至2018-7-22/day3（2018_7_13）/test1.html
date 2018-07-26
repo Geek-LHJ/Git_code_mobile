@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝打分</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    #score{width: 500px; height: 100px; margin: 50px auto;border: 2px solid #333;position: relative;}
+    #score span{display: inline-block;width: 150px; height: 50px; line-height: 50px; text-align: center;}
+    .box1 ul{width: 250px;position: absolute; top:0; left: 150px;}
+    .box1 ul li{float: left; list-style: none; cursor: pointer; width: 48px; height: 48px; background-image:url(images/star_line.png);}
+    #score li.current{background-image:url(images/star.png);}
+    #tip{position: absolute;top:50px; left: 150px;width: 50px; height: 40px;line-height: 40px; background-color: yellow;color: white; display:none; text-align: center; border-radius: 10px;}
+  </style>
+</head>
+<body>
+  <div id="score">
+    <span>点击星星就能打分</span>
+    <div class="box1">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div id="tip">文字</div>
+  </div>
+  <script>
+    var item= point= 0;
+    var Oscore= document.getElementById("score");
+    var Otip= document.getElementById("tip");
+    var Oli= Oscore.getElementsByTagName("li");
+    var msg=['1星','2星','3星','4星','5星'];
+
+    for(var i= 0; i< Oli.length; i++){
+      Oli[i].index=i;
+      Oli[i].onmouseover = function(){
+        item= this.index+ 1;
+        for(var i=0; i<Oli.length; i++){
+          Oli[i].className = i<item? 'current':'';
+        }
+        Otip.style.display='block'; 
+        Otip.style.left = 150+this.index*48+'px';
+        Otip.innerHTML = msg[this.index];
+      }
+
+      Oli[i].onclick = function(){
+      point = this.index+1;   
+      return point;
+      }
+
+      Oli[i].onmouseout = function(){ 
+        for(var i=0; i<Oli.length; i++){
+          Oli[i].className = i<point? 'current':'';
+        }
+        if(point == 0){
+            Otip.style.display='none'; 
+        }else{
+          Otip.style.left = 150+(point-1)*48+'px';
+          Otip.innerHTML = msg[point-1];
+        }
+      }
+    }
+  </script>
+</body>
+</html>

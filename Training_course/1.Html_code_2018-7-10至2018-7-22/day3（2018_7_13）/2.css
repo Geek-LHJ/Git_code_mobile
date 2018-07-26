@@ -1,0 +1,47 @@
+* {
+  padding:0px;
+  margin:0px;
+}
+.box{ margin: 0 300px;}
+.swapImg {
+  position:absolute;
+}
+
+.btn {
+  position:absolute;
+  height:90px;
+  width:60px;
+  background:rgba(0,0,0,0.3);
+  color:#fff;
+  text-align:center;
+  line-height:90px;
+  font-size:40px;
+  top:155px;
+  cursor:pointer;
+}
+
+.btnRight {
+  left:950px;
+}
+
+#tabs {
+  position:absolute;
+  top:370px;
+  margin-left:250px;
+}
+.tab {
+  height:20px;
+  width:20px;
+  background:#05e9e2;
+  line-height:20px;
+  text-align:center;
+  font-size:10px;
+  float:left;
+  color:#ffffff;
+  margin-right:10px;
+  border-radius:100%;
+  cursor:pointer;
+}
+.bg {
+  background:#00ff21;
+}

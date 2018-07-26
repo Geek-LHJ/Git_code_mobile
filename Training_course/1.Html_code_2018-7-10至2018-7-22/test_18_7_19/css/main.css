@@ -1,0 +1,146 @@
+/*公用*/
+.comWidth{width: 1130px;margin: 0px auto;}
+.leftArea{float: left;}
+.rightArea{float: right}
+.hide{display: none;}
+.show{display: block;}
+.h_30{height: 30px;}
+.h_5{height: 5px;}
+.centerArea, .rightArea{padding: 0 15px;}
+
+/*headBar*/
+.headBar{width: 100%; height: 70px; border-bottom: 1px solid #ccc;}
+.topBar{width: 100%; height: 3px;background-color: #009a61; position: relative;}
+.logo{width: 170px; height: 65px;}
+.logo img{width: 170px; height: 60px; margin: auto;}
+.navTop{width: 340px; height: 65px;}
+.navTop .navTopItem_active{color: #009a61; font-weight: bold;}
+.navTop ul{margin-left: 20px;}
+.navTop ul li{display: inline-block;}
+.navTop ul a{display: inline-block;margin-top:2px;padding: 0 10px;color: #777; height: 60px;line-height: 60px; font-size: 16px; }
+.navTop ul a i{ display: inline-block; width: 15px;height: 15px;line-height: 60px; background: url("../icon/jiao.png") no-repeat 2px 1px;}
+.searchBox{float: left;margin-left:60px; margin-top: 15px; width: 265px; height: 35px; border: 1px solid #ccc; border-radius: 5px;}
+.searchBox .search_text{width: 265;height: 32px; line-height: 32px; text-indent: 1em; color: #666;background-color: #fff;}
+
+/*search_text变长*/
+.search_text:focus{border:1px solid #00BBFF; border-radius: 5px; width: 660px; position: absolute;left: 285px; z-index: 1;}
+
+/*find显示盒子内容*/
+.find_box{position: relative;top: 0px;left: 0px;}
+.find_content{position: absolute;top: 56px;left: 0px; width: 400px;height: 315px; background-color: #fff;
+	 border-radius: 5px;border: 1px solid #aaa; z-index: 1;}
+.find_left{float: left;width: 125px;}
+.find_left li{float: left;width: 90px; height: 30px; line-height: 30px; text-align: left;}
+.find_left li a:hover, a:focus{color: #009a61 ;}
+.find_right{float: right; width: 260px;}
+.find_detail{width: 240px;}
+.find_text p{height: 20px;line-height: 20px; color: #009a61;}
+.find_text h5{font-size: 10px; color: #888; font-weight: normal;}
+.find_text small{color: #F5A623;}
+
+/*.searchBox .search_img{width: 40px;height: 35px;}*/
+.searchBox .search_img a{display: inline-block;width: 40px;height: 35px; padding-top: 5px; }
+.userBox{width: 210px; height: 35px; margin-top: 15px; position: relative;}
+.userBox li{display: inline-block;float: left; height: 35px;padding: 0 5px;}
+.userBox .userMake{width: 55px; height: 35px; line-height: 35px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; padding-left:10px;}
+.userBox .userMake i{display: inline-block; width: 15px;height: 15px;line-height: 35px; background: url("../icon/jiao.png") no-repeat;}
+
+/*小铃点击显示内容*/
+.ling_detail{position: absolute;left: -215px; background-color: #fff;width: 320px; height: 350px; border-radius: 5px;border: 1px solid #aaa;z-index: 1;}
+.ling_top{height: 40px;border-bottom: 1px solid #ccc; }
+.ling_top li{width: 70px; height: 40px; text-align: center;}
+.ling_active{border-bottom: 2px solid #009A61;}
+
+.ling_center{height: 275px;}
+
+.ling_bottom{height: 35px;border-top: 1px solid #ccc;}
+.ling_bottom a{display: inline-block;float: right; height: 35px; line-height: 35px;color: #666;}
+
+/*头像划过显示内容*/
+.head_detail{position: absolute;left: -50px; background-color: #fff;width: 240px; height: 240px; border-radius: 5px;border: 1px solid #aaa;}
+.head_detail_top{height: 35px; line-height: 35px;margin-top: 5px; padding-bottom: 15px; border-bottom: 1px solid #ddd;}
+.head_detail_top span{display: inline-block;float: left;padding-left: 20px;  font-size: 14px;height: 35px; line-height: 35px;font-weight: bold; }
+.head_detail_top i{display: inline-block;float: left;margin: 7px 0 0 5px; width: 110px; height: 35px;line-height: 35px;background:url("../icon/shengwang.png")no-repeat;}
+.head_detail_bottom{width: 240px; padding-top: 10px;}
+.head_detail_bottom a{display: inline-block; float: left;text-indent: 20px; width: 120px;height: 30px; line-height: 30px;}
+
+/*container盒子*/
+/*leftArea盒子*/
+.leftArea{ width: 170px;padding: 0 15px 0 5px; /*background-color: red;*/}
+.leftArea li p{width: 170px; height: 35px;line-height: 35px; font-size: 14px;}
+.leftArea li a{display: inline-block; color: #666; width: 170px; height: 35px;line-height: 35px;font-size: 14px; text-indent: 30px;}
+.leftArea_top .leftArea_top_active{ background-color: #009A61; color: #fff; font-weight: bold; border-radius: 5px;}
+.leftArea_bottom li a:hover, a:focus{background-color: #ddd ;}
+.leftArea_top i,.leftArea_bottom i{display: inline-block;margin-top: 2px;margin-left: -25px; float: left; width:16px ;height:16px; line-height: 35px;}
+.leftArea_top i,.leftArea_bottom i img{width:16px ;height:16px; }
+/*leftArea盒子*/
+.centerArea{ width: 635px; /*background-color: blue;*/}
+/*轮播图*/
+.banner{/*background-color: #ccc;*/width: 635px; height: 150px; position: relative;top: 0; left: 0; }
+.banner_bar .imgBox li{float: left;}
+.banner_bar .imgBox .swapImg{position: absolute; top: 0; left: 0;}
+.banner_bar .imgBox img{width: 635px; height: 150px; display: block;}
+.banner_bar .imgNum{position: absolute;right: 20px; bottom: 10px; width: 100px;}
+.banner_bar .imgNum a{display: inline-block; width: 10px; height: 10px; border:1px solid #fff;border-radius: 10px; cursor:pointer; margin-right: 5px;}
+.banner_bar .imgNum .activeNum{background-color: #fff;}
+/*myRead盒子*/
+.myRead{height: 40px; border-bottom:1px solid #ccc; }
+.myRead h5{font-size: 16px; height: 40px; line-height: 40px;display: inline-block;float: left;margin-right: 10px;}
+.myRead p{font-size: 12px; color: #ccc; height: 20px; line-height: 20px ;margin-top: 10px; display: inline-block; float: left; border-left: 1px solid #ccc;padding: 0 5px;}
+.myRead .btn{padding-top: 10px; font-size: 14px;}
+.myRead .btn button{border-radius: 5px; cursor: pointer; border: 1px solid #ccc; background-color: #fff;} 
+.myRead .btn button:hover{border: 1px solid #aaa; background-color: #ddd;}
+/*content*/
+.content{width: 635px;}
+.content_item{width: 635px; height: 135px; padding: 15px 0; /* background-color: red;*/}
+.author p, a{font-size: 14px; color: #aaa; height: 20px; line-height: 20px;}
+.author a:hover{text-decoration: underline;}
+.content_news p{font-size: 18px; height: 40px; line-height: 40px;color: #666;}
+.content_news small{display: inline-block; font-size: 13px; max-width: 510px;height: 20px; line-height: 20px; color: #aaa;}
+.content_img{width: 80px; height: 60px;float: right; margin-top: -60px;}
+.good{height: 40px; line-height: 40px; }
+.good i{display: inline-block; width: 50px;height: 30px; line-height: 40px; background: url("../icon/good.png") no-repeat 5px 12px;}
+.good a,p{display: inline-block; font-size: 13px; color: #666;}
+.good a:hover, a:focus{text-decoration: underline;}
+.good p{color: #aaa;}
+
+/*leftArea盒子*/
+.rightArea{ width: 245px;/*background-color: yellow;*/  position: ;}
+.explain{width: 215px; height: 40px; padding: 15px; background-color: #fcf8e3; border: 1px solid #faebcc;margin-bottom: 20px;}
+.explain a{color: #8a6d3b; font-size: 13px;}
+.explain a:hover, a:focus{text-decoration: underline;}
+.rightImg {width: 255px; height: 275px; margin-bottom: 20px;}
+.rightImg img{width: 255px; height: 255px;}
+.rightImg a{color: #aaa;margin-left: 60px; font-size: 13px;}
+.rightImg a:hover, a:focus{text-decoration: underline;}
+.banner_right{width: 255px; height: 255px; margin-bottom: 20px; /*background-color: red;*/position: relative;}
+.banner_right a{ font-size: 16px; color: #009a61; }
+.banner_right a:hover, a:focus{text-decoration: underline;}
+.goLeft, .goRight{float: right;width: 20px; height: 15px; line-height: 15px;cursor:pointer; border-radius: 10px;
+	background-color: #00DD00; font-weight: bold; color: #fff; font-size: 10px; margin: 0 2px;}
+.goLeft:hover, .goLeft:focus{background-color: #227700;}
+.goRight:hover, .goRight:focus{background-color: #227700;}
+.banner_right_img  li{float: left;}
+.banner_right_img  .price_img{position: absolute; top: 50px; left: 25px;}
+
+
+
+.activities_title{width: 255px; height: 22px; margin-bottom: 20px;}
+.activities_title p{font-size: 16px;}
+.activities_title a{color: #009a61;display: inline-block;float: right;}
+.activities_title a:hover, a:focus{color: #004e31; text-decoration: underline;}
+.activities_detail{width: 255px;}
+.activities_detail li{display: inline-block; padding: 5px 0;}
+.activities_time{float: left;width: 35px;}
+.activities_text{float: right;width: 205px; padding-left: 10px;}
+.activities_text span{font-size: 12px;color: #aaa;}
+.activities_text i{color: #F5A623; font-style:normal;}
+
+/*广告位置定位*/
+.right_ad{width: 255px; height: 210px;}
+.right_ad_fiexd{position: fixed; top: 20px;}
+
+/*回顶部按钮*/
+.fiexdTool{position: fixed; right: 40px; bottom: 40px; background: #FFF; width: 36px; text-align: center; border-radius: 2px; line-height: 1.25; z-index: 1000;}
+.fiexdTool a{padding: 10px; height: 65px; border: 1px solid #DDD; display: block; color: #999; text-decoration: none;}
+

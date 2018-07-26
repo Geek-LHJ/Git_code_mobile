@@ -1,0 +1,16 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+}
+.top{height: 40px; width: 100%;background-color: white;}
+.left li{float: left; list-style: none; margin-right: 30px;}
+ul li a{height: 40px;line-height: 40px; font-size:18px;}
+.jian{height: 40px;padding: 0 70px 0 20px; line-height: 40px; font-size:24px; font-weight: bold;}
+
+.search{width: 150px;margin-right: 200px;height: 30px;line-height: 30px; margin-top: 5px;border: none;background-color: #ccc; border-radius: 8px; text-indent: 15px;}
+.right li{float: right; list-style: none; margin-right: 30px;}
+.btn1{height: 40px;width: 100px; background-color: red; border-radius: 20px;}
+.btn2{height: 40px;width: 80px; background-color: #999; border-radius: 20px;}
+
+.container{width: 80%; margin: 0 auto; background-color: #999; min-height: 600px;}

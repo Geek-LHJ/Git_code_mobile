@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.nav{
+			box-sizing:border-box;
+			width: 300px;
+			height: 400px;
+			margin:30px auto;
+			background:black;
+		}
+		.time{
+			margin-top:40px;
+			width: 300px;
+			height: 80px;
+			line-height:80px;
+			text-align:center;
+			font-size:30px;
+			color:white;
+		}
+		.ele{
+			width: 200px;
+			height: 50px;
+			margin:0 auto;
+			border:1px solid white;
+			margin-top:40px;
+
+		}
+		.green{
+			width: 100px;
+			height: 50px;
+			background:#23ed60;
+		}
+		.arrow{
+			color:white;
+			width: 50px;
+			height:40px;
+			line-height: 40px;
+			text-align:center;
+			font-size:20px;
+			background:#555;
+			cursor: pointer;
+			user-select:none;
+			position:absolute;
+			top:0;
+			left:0;
+		}
+		.foot{
+			
+			width: 260px;
+			height: 40px;
+			border:3px solid #222;
+			margin:150px  auto 0 ;
+			position: relative;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<div class="time">13:34</div>
+		<div class="ele">
+			<div class="green"></div>
+		</div>
+		<div class="foot">
+			<div class="arrow">-></div>
+		</div>
+	</div>
+	<script>
+		var offx=0;
+		var offy=0;
+		var arrow=document.getElementsByClassName('arrow')[0];
+		var doc=document.documentElement
+		var x=0;
+		var sx=0;
+		var dis=0;
+		arrow.onmousedown=function(e){
+			var e=e||event;
+            x=e.clientX;
+            sx=e.offsetX;
+            dis=x-sx;
+            console.log(x)
+            console.log(sx)
+            arrow.onmousemove=function(e){
+            	var e=e||event;
+            	console.log(e.clientX)
+            	var maxLength=210;
+            	if(e.clientX-dis<210){
+            		if(e.client-dis<0){
+            		arrow.style.left=0+"px";	
+            		}else{
+            			arrow.style.left=e.clientX-dis+"px";
+            		}
+	            }else{
+	            	arrow.style.left=210+"px";
+	            	arrow.innerHTML="解锁";
+	            }
+            }
+            arrow.onmouseout=function(e){
+            	arrow.onmousemove=null;
+            	var e=e||event;
+            	if(e.clientX-dis<210){
+            	arrow.style.left=0+"px";
+            	arrow.innerHTML="->";	
+	            }else{
+	            	arrow.style.left=210+"px";
+	            	arrow.innerHTML="解锁";
+	            	arrow.onmouseout=null
+	            }
+            }
+		}
+	</script>
+</body>
+</html>

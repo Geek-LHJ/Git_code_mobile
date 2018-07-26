@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标签栏</title>
+    <style type="text/css" media="screen">
+    	*{margin: 0; padding: 0;}
+    	a{text-decoration: none; color: black;}
+    	.nav_head{width: 220px; height: 40px;line-height: 40px; background-color: #00c9ff; text-align: center; font-weight: 700;}
+    	.nav_head a{color: #fff;}
+    	.nav_box{width: 220px;}
+    	.nav_box div{font-size: 16px; height: 70px; line-height: 70px;border-bottom: 1px solid #fff; background-color: #666;}
+    	.nav_box div img{ width: 25px; height: 25px; margin: 0 20px; line-height: 70px; }
+    	.nav_box div span{display: inline-block; width: 70px;height: 16px;line-height: 70px; background: url("./icon/jian_r.png") no-repeat right center;}
+    	.nav_box div a{color: #fff; display: inline-block;height: 70px; line-height: 70px;}
+
+    </style>
+    <script type="text/javascript" src="./jquery-1.4.4.min.js" "></script>
+    <script>
+    	var oNav_box= document.getElementByClassName("nav_box")[0];
+
+    </script>
+</head>
+<body>
+	<div class="nav_head"><a href="#" title="">全部服务分类</a></div>
+	<div class="nav_box">
+		<div><img src="./icon/icon_1.png" alt=""><a href="#" title="">注册公司<span></span></a></div>
+		<div><img src="./icon/icon_2.png" alt=""><a href="#" title="">税务记账<span></span></a></div>
+		<div><img src="./icon/icon_3.png" alt=""><a href="#" title="">商标资产<span></span></a></div>
+		<div><img src="./icon/icon_4.png" alt=""><a href="#" title="">高新资质<span></span></a></div>
+		<div><img src="./icon/icon_5.png" alt=""><a href="#" title="">社保人事<span></span></a></div>
+		<div><img src="./icon/icon_6.png" alt=""><a href="#" title="">专业律师<span></span></a></div>
+	</div>
+</body>
+</html>
